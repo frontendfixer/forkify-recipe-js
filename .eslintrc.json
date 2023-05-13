@@ -10,7 +10,23 @@
     "prettier/prettier": "off",
     "no-unused-vars": "warn",
     "no-param-reassign": "off",
-    "func-names": "off"
+    "func-names": "off",
+    "no-underscore-dangle": ["error", { "enforceInClassFields": true }],
+    "class-methods-use-this": [
+      "error",
+      {
+        "enforceForClassFields": true,
+        "enforceInMethodNames": true
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": false,
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ]
   },
   "parserOptions": {
     "ecmaVersion": "latest",
