@@ -4,21 +4,49 @@
     "es2021": true
   },
   "extends": ["airbnb-base", "prettier"],
-  "overrides": [],
+  "overrides": [
+    {
+      "files": ["src/**/*.{js,jsx}"],
+      "rules": {
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              "builtin",
+              "external",
+              "internal",
+              ["parent", "sibling"],
+              "index",
+              "object",
+              "type"
+            ],
+            "pathGroups": [
+              {
+                "pattern": "./**/**\\.css",
+                "group": "type",
+                "position": "after"
+              }
+            ],
+            "pathGroupsExcludedImportTypes": ["builtin"],
+            "alphabetize": {
+              "order": "asc",
+              "caseInsensitive": true
+            },
+            "newlines-between": "always",
+            "warnOnUnassignedImports": true
+          }
+        ]
+      }
+    }
+  ],
   "plugins": ["prettier", "import"],
   "rules": {
     "prettier/prettier": "off",
     "no-unused-vars": "warn",
     "no-param-reassign": "off",
     "func-names": "off",
-    "no-underscore-dangle": ["error", { "enforceInClassFields": true }],
-    "class-methods-use-this": [
-      "error",
-      {
-        "enforceForClassFields": true,
-        "enforceInMethodNames": true
-      }
-    ],
+    "no-underscore-dangle": "off",
+    "class-methods-use-this": "off",
     "import/no-extraneous-dependencies": [
       "error",
       {
