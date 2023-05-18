@@ -1,7 +1,7 @@
 import { html } from 'code-tag';
 
-import Base from './base.view';
 import icons from '../../img/icons.svg';
+import Base from './base.view';
 
 class PaginationView extends Base {
   _parentEl = document.querySelector('.pagination');
@@ -30,11 +30,13 @@ class PaginationView extends Base {
     // Last page
     if (curPage === numPages && numPages > 1)
       return this.#generateMarkupButton('prev');
-    //Other page
+    // Other page
     if (curPage < numPages) return this.#generateMarkupButton('both');
     // Page 1, and there are no other pages
     return '';
   }
+
+  // eslint-disable-next-line consistent-return
   #generateMarkupButton(type) {
     const curPage = this._data.page;
     if (type === 'next') {

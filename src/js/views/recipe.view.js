@@ -1,9 +1,8 @@
-/* eslint-disable import/no-extraneous-dependencies */
 import { html } from 'code-tag';
 import fracty from 'fracty';
 
-import Base from './base.view';
 import icons from '../../img/icons.svg';
+import Base from './base.view';
 
 class RecipeView extends Base {
   _parentEl = document.querySelector('.recipe');
