@@ -1,4 +1,6 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { html } from 'code-tag';
+
 import Base from './base.view';
 
 class ResultsView extends Base {
@@ -12,10 +14,17 @@ class ResultsView extends Base {
     const recipes = this._data;
     return recipes.map(recipe => this._generateMarkupPreview(recipe)).join('');
   }
+
   _generateMarkupPreview({ id, title, image, publisher }) {
+    const curId = window.location.hash.slice(1);
+
     return html`
       <li class="preview">
-        <a class="preview__link" href="#${id}">
+        <a
+          class="preview__link
+          ${curId === id ? 'preview__link--active' : ''}"
+          href="#${id}"
+        >
           <figure class="preview__fig">
             <img src=${image} alt=${title} />
           </figure>
