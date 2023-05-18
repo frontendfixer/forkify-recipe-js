@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import fracty from 'fracty';
 import { html } from 'code-tag';
+import fracty from 'fracty';
 
 import Base from './base.view';
 import icons from '../../img/icons.svg';
@@ -51,12 +51,18 @@ class RecipeView extends Base {
           <span class="recipe__info-text">servings</span>
 
           <div class="recipe__info-buttons">
-            <button class="btn--tiny btn--increase-servings">
+            <button
+              class="btn--tiny btn--update-servings"
+              data-update-to=${servings - 1}
+            >
               <svg>
                 <use href="${icons}#icon-minus-circle"></use>
               </svg>
             </button>
-            <button class="btn--tiny btn--increase-servings">
+            <button
+              class="btn--tiny btn--update-servings"
+              data-update-to=${servings + 1}
+            >
               <svg>
                 <use href="${icons}#icon-plus-circle"></use>
               </svg>
@@ -118,6 +124,16 @@ class RecipeView extends Base {
 
   addHandlerRecipe(handler) {
     ['load', 'hashchange'].forEach(ev => window.addEventListener(ev, handler));
+  }
+
+  addHandlerUpdateServings(handler) {
+    this._parentEl.addEventListener('click', e => {
+      const btn = e.target.closest('.btn--update-servings');
+      if (!btn) return;
+
+      const { updateTo } = btn.dataset;
+      if (+updateTo > 0) handler(+updateTo);
+    });
   }
 }
 
