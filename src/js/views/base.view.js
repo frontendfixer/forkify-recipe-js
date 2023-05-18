@@ -1,5 +1,3 @@
-/* eslint-disable consistent-return */
-/* eslint-disable import/no-extraneous-dependencies */
 import { html } from 'code-tag';
 
 import icons from '../../img/icons.svg';
@@ -7,15 +5,18 @@ import icons from '../../img/icons.svg';
 export default class Base {
   _data;
 
-  render(data) {
+  render(data, render = true) {
     if (!data || (Array.isArray(data) && data.length === 0))
       return this.renderError();
 
     this._data = data;
 
     const markup = this._generateMarkup();
+
+    if (!render) return markup;
+
     this.#clear();
-    this._parentEl.insertAdjacentHTML('afterbegin', markup);
+    return this._parentEl.insertAdjacentHTML('afterbegin', markup);
   }
 
   update(data) {
