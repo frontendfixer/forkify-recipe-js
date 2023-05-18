@@ -8,6 +8,10 @@ class BookmarksView extends Base {
 
   _message = '';
 
+  addHandlerRender(handler) {
+    window.addEventListener('load', handler);
+  }
+
   _generateMarkup() {
     const recipes = this._data;
     return recipes
