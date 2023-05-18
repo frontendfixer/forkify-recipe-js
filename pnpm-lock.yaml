@@ -33,6 +33,9 @@ devDependencies:
   sass:
     specifier: ^1.62.1
     version: 1.62.1
+  terser:
+    specifier: ^5.17.4
+    version: 5.17.4
   vite:
     specifier: ^4.3.2
     version: 4.3.2(sass@1.62.1)(terser@5.17.4)
