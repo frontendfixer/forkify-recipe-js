@@ -6,3 +6,5 @@ export const API_KEY = '4cdb4abc-94bd-43a3-8bca-cd35a8c2dfea';
 export const TIMEOUT_SEC = 10;
 
 export const RES_PER_PAGE = 10;
+
+export const MODEL_CLOSE_SEC = 2.5;
