@@ -1,4 +1,5 @@
 import * as model from './model';
+import addRecipeView from './views/add-recipe.view';
 import bookmarksView from './views/bookmarks.view';
 import paginationView from './views/pagination.view';
 import recipeView from './views/recipe.view';
@@ -81,7 +82,12 @@ const controlBookmarks = function () {
   bookmarksView.render(model.state.bookmarks);
 };
 
+const controlAddRecipe = function (newRecipe) {
+  console.log(newRecipe);
+};
+
 const init = function () {
+  addRecipeView.addHandlerSubmit(controlAddRecipe);
   bookmarksView.addHandlerRender(controlBookmarks);
   recipeView.addHandlerRecipe(controlRecipes);
   recipeView.addHandlerUpdateServings(controlServings);
