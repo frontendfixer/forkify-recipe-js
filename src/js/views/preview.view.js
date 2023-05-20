@@ -1,5 +1,6 @@
 import { html } from 'code-tag';
 
+import icons from '../../img/icons.svg';
 import Base from './base.view';
 
 class PreviewView extends Base {
@@ -23,6 +24,13 @@ class PreviewView extends Base {
           <div class="preview__data">
             <h4 class="preview__title">${title}</h4>
             <p class="preview__publisher">${publisher}</p>
+            <div
+              class="preview__user-generated ${this._data.key ? '' : 'hidden'}"
+            >
+              <svg>
+                <use href="${icons}#icon-user"></use>
+              </svg>
+            </div>
           </div>
         </a>
       </li>
