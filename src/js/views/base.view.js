@@ -5,6 +5,16 @@ import icons from '../../img/icons.svg';
 export default class Base {
   _data;
 
+  /**
+   * Render the received object to the DOM
+   * @param {Object | Object[]} data The Data to be rendered (e.g. recipe)
+   * @param {boolean} [render] If false, create markup string instead of rendering to the DOM
+   * @returns {undefined| string} A markup string is returned if render=false
+   * @this {Object} View instance
+   * @author Lakshmikanta Patra
+   * @todo Finish implementation
+   */
+
   render(data, render = true) {
     if (!data || (Array.isArray(data) && data.length === 0))
       return this.renderError();
